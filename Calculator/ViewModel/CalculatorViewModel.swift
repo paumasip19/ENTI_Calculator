@@ -29,6 +29,7 @@ class CalculatorViewModel: CalculatorViewModelProtocol,
                            ObservableObject {
     
     @Published var display: String = "0"
+    @Published var buttonText: String = "AC"
 
     private var operation: Calculation = Calculation(firstOperator: 0,
                                                      secondOperator: 0,
@@ -36,6 +37,8 @@ class CalculatorViewModel: CalculatorViewModelProtocol,
     private var operationFinished: Bool = false
     
     public func addDigit(_ digit: String) {
+        self.buttonText = "C"
+        
         if self.operation.operation != .none && self.operation.secondOperator == nil {
             self.operation.secondOperator = 0
             self.display = digit
@@ -56,6 +59,7 @@ class CalculatorViewModel: CalculatorViewModelProtocol,
     public func resetOperands() {
         self.operation.reset()
         self.display = "0"
+        self.buttonText = "AC"
     }
     
     public func perform(operation: CalculatorOperation) {

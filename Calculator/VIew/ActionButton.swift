@@ -24,6 +24,6 @@ struct ActionButton: View {
 
 struct ActionButton_Previews: PreviewProvider {
     static var previews: some View {
-        ActionButton(label: "AC", action: { print("AC" )})
+        ActionButton(label: "AC", action: { print("AC")})
     }
 }
